@@ -10,6 +10,8 @@ package Controller;
  *
  * @author Anders Wind - awis@itu.dk
  */
-public interface Interface_Server extends Interface_RetrieveServerInfo, Interface_SendInfoToServer, Interface_ServerSettings{
+public interface Interface_ServerSettings {
 	
+	public void startGame();
+	public void setUp();
 }
