@@ -6,9 +6,12 @@
 
 package Client;
 
+import Controller.Interface_SendInfoToServer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -21,8 +24,9 @@ import javax.swing.JFrame;
  * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements KeyListener{
 
+	private Interface_SendInfoToServer serverSend;
 	private JComponent drawGameComponent;
 	
 	public MainFrame() throws HeadlessException
@@ -44,5 +48,30 @@ public class MainFrame extends JFrame {
 		pack();
 		setVisible(true);
 		repaint();
+	}
+
+	
+	
+	
+	
+	
+	// key listener
+	
+	@Override
+	public void keyTyped(KeyEvent e)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

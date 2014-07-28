@@ -6,6 +6,7 @@
 
 package Controller;
 
+import Client.ChooseServerOrClientFrame;
 import Client.MainFrame;
 
 /**
@@ -14,12 +15,27 @@ import Client.MainFrame;
  */
 public class AppController {
 
+	private static ChooseServerOrClientFrame chooseFrame;
+	
 	/**
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args)
 	{
-		new MainFrame();
+		chooseFrame = new ChooseServerOrClientFrame();
 	}
 	
+	public static void startAsServer()
+	{
+		chooseFrame.dispose();
+		chooseFrame = null;
+		new ServerApp();
+	}
+	
+	public static void startAsClient()
+	{
+		chooseFrame.dispose();
+		chooseFrame = null;
+		new ClientApp();
+	}
 }

@@ -6,6 +6,8 @@
 
 package Controller;
 
+import java.awt.geom.Point2D;
+
 /**
  * Class description:
  *
@@ -15,24 +17,112 @@ package Controller;
  * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class Controller {
+public class Controller implements Interface_Server{
 
-	private Controller instance = null;
+	private static Controller instance = null;
 	
 	private Controller()
 	{
 		
 	}
 	
-	public Interface_RetrieveServerInfo getServerRetrieve()
+	public static Interface_RetrieveServerInfo getServerRetrieve()
 	{
 		if(instance == null) instance = new Controller();
 		return (Interface_RetrieveServerInfo)instance;
 	}
 	
-	public Interface_RetrieveServerInfo getServerSend()
+	public static Interface_RetrieveServerInfo getServerSend()
 	{
 		if(instance == null) instance = new Controller();
 		return (Interface_RetrieveServerInfo) instance;
+	}
+	
+	public static Interface_ServerSettings getServerSettings()
+	{
+		if(instance == null) instance = new Controller();
+		return (Interface_ServerSettings) instance;
+	}
+	
+	//
+	// interface specific methods.
+	//
+	
+	// retrieve
+
+	@Override
+	public Point2D getPlayerXPosition(int playerID)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public int getPlayerXScore(int playerID)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Point2D getBallPosition()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public String getWhichPlayersTurn()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public String getMessage()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	// send
+
+	@Override
+	public void movePlayerPositive()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void movePlayerNegative()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void sendStartRoundSignal()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void sendStartGameSignal()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void sendEndGameSignal()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	// settings
+
+	@Override
+	public void startGame()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void setUp()
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
