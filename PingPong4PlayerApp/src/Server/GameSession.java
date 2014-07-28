@@ -12,7 +12,7 @@ package Server;
  * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class Game {
+public class GameSession {
 
 	private Player player1;
 	private Player player2;
@@ -22,7 +22,7 @@ public class Game {
 	private int pointsToWin;
 	private Ball ball;
 
-	public Game(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
+	public GameSession(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
 	{
 		this.player1 = player1;
 		this.player2 = player2;

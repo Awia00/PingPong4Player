@@ -24,4 +24,9 @@ public class Player {
 		this.points = points;
 		this.name = name;
 	}
+
+	public static Player emptyPlayer()
+	{
+		return new Player(Bat.emptyBat(), 0, "");
+	}
 }

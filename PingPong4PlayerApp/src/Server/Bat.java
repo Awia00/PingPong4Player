@@ -19,12 +19,17 @@ public class Bat {
 	private Point2D position;
 	private float length;
 	private float speed;
-
+	
 	public Bat(Point2D position, float length, float speed)
 	{
 		this.position = position;
 		this.length = length;
 		this.speed = speed;
+	}
+	
+	public static Bat emptyBat()
+	{
+		return new Bat(new Point2D.Float(), 0, 0);
 	}
 
 }

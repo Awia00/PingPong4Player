@@ -18,10 +18,15 @@ public class Ball {
 
 	private Point2D position;
 	private float speed;
-
+	
 	public Ball(Point2D position, float speed)
 	{
 		this.position = position;
 		this.speed = speed;
+	}
+	
+	public static Ball emptyBall()
+	{
+		return new Ball(new Point2D.Float(), 0);
 	}
 }
