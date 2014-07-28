@@ -22,7 +22,7 @@ public class GameSession {
 	private Player player4;
 	
 	private int pointsToWin;
-	private int ActivePlayer = 0; // the last player who touched the ball
+	private int ActivePlayer = 0; // the last player who touched the ball or the player who just lost.
 	private Ball ball;
 
 	public GameSession(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
