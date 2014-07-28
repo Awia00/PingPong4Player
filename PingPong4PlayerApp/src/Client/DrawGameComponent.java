@@ -6,6 +6,11 @@
 
 package Client;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.JComponent;
+
 /**
  * Class description:
  *
@@ -15,6 +20,18 @@ package Client;
  * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class DrawGameComponent {
+public class DrawGameComponent extends JComponent {
 
+	public DrawGameComponent()
+	{
+		// component  settings
+		setMinimumSize(new Dimension(800,800));
+	}
+	
+	@Override
+	public void paint(Graphics g)
+	{
+		g.setColor(Color.black);
+		g.fillRect(0, 0, 800, 800);
+	}
 }

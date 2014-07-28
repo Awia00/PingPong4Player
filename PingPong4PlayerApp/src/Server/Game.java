@@ -14,4 +14,23 @@ package Server;
  */
 public class Game {
 
+	private Player player1;
+	private Player player2;
+	private Player player3;
+	private Player player4;
+	
+	private int pointsToWin;
+	private Ball ball;
+
+	public Game(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
+	{
+		this.player1 = player1;
+		this.player2 = player2;
+		this.player3 = player3;
+		this.player4 = player4;
+		this.pointsToWin = pointsToWin;
+		this.ball = ball;
+	}
+	
+	
 }

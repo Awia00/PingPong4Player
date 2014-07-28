@@ -12,4 +12,13 @@ package Controller;
  */
 public interface Interface_SendInfoToServer {
 	
+	public void movePlayerPositive(); // up or left
+	public void movePlayerNegative(); // down or right
+	
+	/*
+	Signal specific methods
+	*/
+	public void sendStartRoundSignal(); // enter
+	public void sendStartGameSignal(); // enter before game has begun.
+	public void sendEndGameSignal(); // esc.
 }

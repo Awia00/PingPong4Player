@@ -6,10 +6,29 @@
 
 package Controller;
 
+import java.awt.geom.Point2D;
+
 /**
  *
  * @author Anders Wind - awis@itu.dk
  */
 public interface Interface_RetrieveServerInfo {
+	
+	/*
+	Player specific methods
+	*/
+	public Point2D getPlayerXPosition(int playerID);
+	public int getPlayerXScore(int playerID);
+	
+	/*
+	Game specific methods
+	*/
+	public Point2D getBallPosition();
+	
+	/*
+	Message specific methods
+	*/
+	public String getWhichPlayersTurn();
+	public String getMessage();
 	
 }

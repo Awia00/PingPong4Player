@@ -9,12 +9,19 @@ package Server;
 /**
  * Class description:
  *
- * @version 0.1 - changed 28-07-2014
- * @authorNewVersion  Anders Wind - awis@itu.dk
- *
  * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
 public class Player {
 
+	private Bat bat;
+	private int points;
+	private String name;
+
+	public Player(Bat bat, int points, String name)
+	{
+		this.bat = bat;
+		this.points = points;
+		this.name = name;
+	}
 }
