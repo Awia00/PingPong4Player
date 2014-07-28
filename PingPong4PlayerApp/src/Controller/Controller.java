@@ -7,17 +7,14 @@
 package Controller;
 
 /**
+ * Class description:
  *
+ * @version 0.1 - changed 28-07-2014
+ * @authorNewVersion  Anders Wind - awis@itu.dk
+ *
+ * @buildDate 28-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class PingPong4PlayerApp {
+public class Controller {
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		// TODO code application logic here
-	}
-	
 }
