@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 
-package Controller;
+package Server;
 
 import Server.Ball;
 import Server.GameSession;
 import Server.Player;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Class description:
@@ -18,7 +20,10 @@ import Server.Player;
  */
 public class ServerApp {
 
-	private GameSession gameSession;
+	protected GameSession gameSession;
+	private boolean isGameRunning;
+	private Timer timer;
+	
 	public ServerApp()
 	{
 		createGame();
@@ -33,6 +38,38 @@ public class ServerApp {
 				Player.emptyPlayer(), 
 				3, 
 				Ball.emptyBall());
+	}
+	
+	private void runGame()
+	{
+		timer = new Timer();
+		TimerTask task = new TimerTask() {
+
+			@Override
+			public void run()
+			{
+				gameSession.moveBall();
+			}
+		};
+		timer.schedule(task, 100,100);
+	}
+	
+	
+	private void stopGame()
+	{
+		timer.purge();
+		timer.cancel();
+		timer = null;
+	}
+	
+	/**
+	 * 
+	 * @param playerID 
+	 * @param direction negative for down/right positive for up/left
+	 */
+	private void movePlayer(int playerID, int direction)
+	{
+		
 	}
 	
 }

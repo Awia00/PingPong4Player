@@ -6,6 +6,8 @@
 
 package Server;
 
+import java.awt.geom.Point2D;
+
 /**
  * Class description:
  *
@@ -28,5 +30,25 @@ public class Player {
 	public static Player emptyPlayer()
 	{
 		return new Player(Bat.emptyBat(), 0, "");
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getPoints()
+	{
+		return points;
+	}
+
+	public Point2D getBatPos()
+	{
+		return bat.getPosition();
+	}
+	
+	public float getBatLength()
+	{
+		return bat.getLength();
 	}
 }

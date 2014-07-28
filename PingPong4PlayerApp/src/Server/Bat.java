@@ -32,4 +32,13 @@ public class Bat {
 		return new Bat(new Point2D.Float(), 0, 0);
 	}
 
+	public float getLength()
+	{
+		return length;
+	}
+
+	public Point2D getPosition()
+	{
+		return position;
+	}
 }

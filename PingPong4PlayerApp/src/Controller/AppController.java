@@ -6,7 +6,8 @@
 
 package Controller;
 
-import Client.ChooseServerOrClientFrame;
+import Client.ClientApp;
+import Server.ServerApp;
 import Client.MainFrame;
 
 /**

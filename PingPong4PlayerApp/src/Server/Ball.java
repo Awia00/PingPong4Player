@@ -29,4 +29,9 @@ public class Ball {
 	{
 		return new Ball(new Point2D.Float(), 0);
 	}
+
+	public Point2D getPosition()
+	{
+		return position;
+	}
 }

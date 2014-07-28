@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Client;
+package Controller;
 
 import Controller.AppController;
 import java.awt.Container;
