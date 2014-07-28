@@ -12,7 +12,7 @@ import Client.MainFrame;
  *
  * @author Anders Wind - awis@itu.dk
  */
-public class AppStarter {
+public class AppController {
 
 	/**
 	 * @param args the command line arguments

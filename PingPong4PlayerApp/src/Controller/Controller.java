@@ -17,4 +17,22 @@ package Controller;
  */
 public class Controller {
 
+	private Controller instance = null;
+	
+	private Controller()
+	{
+		
+	}
+	
+	public Interface_RetrieveServerInfo getServerRetrieve()
+	{
+		if(instance == null) instance = new Controller();
+		return (Interface_RetrieveServerInfo)instance;
+	}
+	
+	public Interface_RetrieveServerInfo getServerSend()
+	{
+		if(instance == null) instance = new Controller();
+		return (Interface_RetrieveServerInfo) instance;
+	}
 }
