@@ -35,6 +35,7 @@ public class ServerApp {
 	public void initiate()
 	{
 		createGame();
+		// put wait for players part here.
 	}
 
 	public GameSession getGameSession()
