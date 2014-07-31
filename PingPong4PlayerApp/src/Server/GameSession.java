@@ -18,16 +18,15 @@ import java.util.ArrayList;
 public class GameSession {
 
 	private ArrayList<Player> players;
-	private Player player1;
-	private Player player2;
-	private Player player3;
-	private Player player4;
+	
+	// bounds
+	private int minX,minY,maxX,maxY;
 	
 	private int pointsToWin;
 	private int ActivePlayer = 0; // the last player who touched the ball or the player who just lost.
 	private Ball ball;
 
-	public GameSession(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
+	public GameSession(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball, int minX, int minY,int maxX,int maxY )
 	{
 		players = new ArrayList<>();
 		players.add(null);
@@ -35,6 +34,11 @@ public class GameSession {
 		players.add(player2);
 		players.add(player3);
 		players.add(player4);
+		
+		this.maxX = maxX;
+		this.maxY = maxY;
+		this.minX = minX;
+		this.minY = minY;
 		this.pointsToWin = pointsToWin;
 		this.ball = ball;
 	}
@@ -62,9 +66,13 @@ public class GameSession {
 	 * @param PlayerID
 	 * @return -1 if collision top/left +1 if collision down/right 0 if no collision.
 	 */
-	public int checkPlayerBoundsCollision(int PlayerID)
+	public boolean checkNoPlayerBoundsCollision(int playerID)
 	{
-		return 0;
+		Point2D point = players.get(playerID).getBatPos();
+		if(point.getX() > maxX-maxX/20 || point.getX() < minX+minX/20)return false;
+		if(point.getY() > maxY-maxY/20 || point.getY() < minY+minY/20)return false;
+			
+		return false;
 	}
 	
 	/**
@@ -104,11 +112,11 @@ public class GameSession {
 	
 	public void movePlayerXPositive(int PlayerID)
 	{
-		players.get(PlayerID).moveBatPositve();
+		if(checkNoPlayerBoundsCollision(PlayerID) == true) players.get(PlayerID).moveBatPositve();
 	}
 	
 	public void movePlayerXNegative(int PlayerID)
 	{
-		players.get(PlayerID).moveBatNegative();
+		if(checkNoPlayerBoundsCollision(PlayerID) == true) players.get(PlayerID).moveBatNegative();
 	}
 }

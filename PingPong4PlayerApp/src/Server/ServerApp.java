@@ -48,7 +48,8 @@ public class ServerApp {
 				Player.emptyPlayer(), 
 				Player.emptyPlayer(), 
 				3, 
-				new Ball(new Point2D.Double(400,400), 1.5f, new Point2D.Double(1,1)));
+				new Ball(new Point2D.Double(400,400), 1.5f, new Point2D.Double(1,1)),
+				0,0,800,800);
 	}
 	
 	public void runGame()
