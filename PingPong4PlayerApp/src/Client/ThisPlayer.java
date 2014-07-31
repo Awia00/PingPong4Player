@@ -25,4 +25,9 @@ public class ThisPlayer {
 		this.score = score;
 	}
 
+	public int getID()
+	{
+		return ID;
+	}
+
 }

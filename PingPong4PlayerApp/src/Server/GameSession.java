@@ -50,7 +50,7 @@ public class GameSession {
 		{
 			if(players.get(i).isEmpty())
 			{
-				players.add(i, new Player(new Bat(new Point2D.Float(0, 0), 2, 1,new Point2D.Float(0, 0)), 0, name));
+				players.add(i, new Player(new Bat(new Point2D.Float(0, 0), 2, 1,new Point2D.Float(1, 0)), 0, name));
 				return i;
 			}
 		}
@@ -100,5 +100,15 @@ public class GameSession {
 	public Point2D getBallPos()
 	{
 		return ball.getPosition();
+	}
+	
+	public void movePlayerXPositive(int PlayerID)
+	{
+		players.get(PlayerID).moveBatPositve();
+	}
+	
+	public void movePlayerXNegative(int PlayerID)
+	{
+		players.get(PlayerID).moveBatNegative();
 	}
 }

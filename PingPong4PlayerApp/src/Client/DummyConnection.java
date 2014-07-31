@@ -22,7 +22,7 @@ public class DummyConnection implements Interface_Server{
 	
 	public DummyConnection()
 	{
-		
+		serverconnection = ServerApp.getServerApp();
 	}
 	
 	@Override
@@ -56,15 +56,15 @@ public class DummyConnection implements Interface_Server{
 	}
 
 	@Override
-	public void movePlayerPositive()
+	public void movePlayerPositive(int playerID)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		serverconnection.getGameSession().movePlayerXPositive(playerID);
 	}
 
 	@Override
-	public void movePlayerNegative()
+	public void movePlayerNegative(int playerID)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		serverconnection.getGameSession().movePlayerXNegative(playerID);
 	}
 
 	@Override

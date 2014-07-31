@@ -20,13 +20,18 @@ import java.util.TimerTask;
  */
 public class ServerApp {
 
-	private static ServerApp instance;
+	private static ServerApp instance = null;
 	
 	protected GameSession gameSession;
 	private boolean isGameRunning;
 	private Timer timer;
 	
 	private ServerApp()
+	{
+		
+	}
+	
+	public void initiate()
 	{
 		createGame();
 	}

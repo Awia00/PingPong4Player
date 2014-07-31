@@ -12,8 +12,8 @@ package Controller;
  */
 public interface Interface_SendInfoToServer {
 	
-	public void movePlayerPositive(); // up or left
-	public void movePlayerNegative(); // down or right
+	public void movePlayerPositive(int playerID); // up or left
+	public void movePlayerNegative(int playerID); // down or right
 	
 	/*
 	Signal specific methods

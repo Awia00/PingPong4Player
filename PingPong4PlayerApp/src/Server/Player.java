@@ -61,4 +61,14 @@ public class Player {
 			return false;
 		}
 	}
+	
+	public void moveBatPositve()
+	{
+		bat.movePositive();
+	}
+	
+	public void moveBatNegative()
+	{
+		bat.moveNegative();
+	}
 }

@@ -41,6 +41,7 @@ public class MainFrame extends JFrame implements KeyListener{
 	{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800,800));
+		addKeyListener(this);
 	}
 	
 	private void rdyUp()
@@ -60,18 +61,25 @@ public class MainFrame extends JFrame implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		//
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		// 37 venstre
+		// 39 højre
+		// 38 op
+		// 40 ned
+		if(e.getKeyCode() == 37 || e.getKeyCode() == 38) // positive
+			ClientApp.getClientApp().movePlayerPositive();
+		if(e.getKeyCode() == 39 || e.getKeyCode() == 40) // negative
+			ClientApp.getClientApp().movePlayerNegative();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		
 	}
 }

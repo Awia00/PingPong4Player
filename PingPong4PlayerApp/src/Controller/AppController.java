@@ -30,14 +30,14 @@ public class AppController {
 	{
 		chooseFrame.dispose();
 		chooseFrame = null;
-		ServerApp.getServerApp();
+		ServerApp.getServerApp().initiate();
 	}
 	
 	public static void startAsClient()
 	{
 		chooseFrame.dispose();
 		chooseFrame = null;
-		ServerApp.getServerApp(); // for testing
-		ClientApp.getClientApp();
+		ServerApp.getServerApp().initiate(); // for testing
+		ClientApp.getClientApp().initiate();
 	}
 }

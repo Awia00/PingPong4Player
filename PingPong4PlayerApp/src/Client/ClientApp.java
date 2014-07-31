@@ -17,16 +17,37 @@ import Controller.Interface_Server;
  */
 public class ClientApp {
 	
-	private static ClientApp instance;
+	private static ClientApp instance = null;
 	private Interface_Server serverConnection;
+	private ThisPlayer thePlayer;
 
 	private ClientApp()
 	{
-		new MainFrame();
-		serverConnection = new DummyConnection();
+		
 	}
 	
+	public void initiate()
+	{
+		new MainFrame();
+		serverConnection = new DummyConnection();
+		int id = serverConnection.assignPlayer("Anders");
+		if(id != 0)thePlayer = new ThisPlayer("Anders", id, 0);
+	}
+
+	public Interface_Server getServerConnection()
+	{
+		return serverConnection;
+	}
 	
+	public void movePlayerPositive()
+	{
+		serverConnection.movePlayerPositive(thePlayer.getID());
+	}
+	
+	public void movePlayerNegative()
+	{
+		serverConnection.movePlayerNegative(thePlayer.getID());
+	}
 
 	public static ClientApp getClientApp()
 	{
