@@ -54,7 +54,7 @@ public class GameSession {
 		{
 			if(players.get(i).isEmpty())
 			{
-				players.add(i, new Player(new Bat(new Point2D.Float(50, 400), new Point2D.Double(5,100), 2,new Point2D.Float(0, 4)), 0, name));
+				players.add(i, new Player(new Bat(new Point2D.Float(50, 400), new Point2D.Double(5,100), 2,new Point2D.Float(0, -4)), 0, name));
 				return i;
 			}
 		}
@@ -69,7 +69,7 @@ public class GameSession {
 	public boolean checkNoPlayerBoundsCollisionPositive(int playerID)
 	{
 		Point2D point = players.get(playerID).getBatPos();
-		if(point.getX() > maxX-maxX/20 || point.getY() > minY+minY/20)return false;
+		if(point.getX() > maxX-maxX/20 || point.getY() < minY+minY/20)return false;
 			
 		return true;
 	}
@@ -77,7 +77,7 @@ public class GameSession {
 	public boolean checkNoPlayerBoundsCollisionNegative(int playerID)
 	{
 		Point2D point = players.get(playerID).getBatPos();
-		if(point.getY() > maxX-maxX/20 || point.getY() > minY+minY/20)return false;
+		if(point.getX() < maxX+maxX/20 || point.getY() > minY-minY/20)return false;
 			
 		return true;
 	}
