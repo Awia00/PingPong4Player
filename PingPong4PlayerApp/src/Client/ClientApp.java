@@ -8,6 +8,7 @@ package Client;
 
 import Client.MainFrame;
 import Controller.Interface_Server;
+import java.awt.geom.Point2D;
 
 /**
  * Class description:
@@ -32,6 +33,7 @@ public class ClientApp {
 		serverConnection = new DummyConnection();
 		int id = serverConnection.assignPlayer("Anders");
 		if(id != 0)thePlayer = new ThisPlayer("Anders", id, 0);
+		startGame();
 	}
 
 	public Interface_Server getServerConnection()
@@ -47,6 +49,16 @@ public class ClientApp {
 	public void movePlayerNegative()
 	{
 		serverConnection.movePlayerNegative(thePlayer.getID());
+	}
+	
+	public Point2D getBallPosition()
+	{
+		return serverConnection.getBallPosition();
+	}
+	
+	public void startGame()
+	{
+		serverConnection.startGame();
 	}
 
 	public static ClientApp getClientApp()

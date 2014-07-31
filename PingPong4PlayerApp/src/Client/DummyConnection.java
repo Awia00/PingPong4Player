@@ -88,7 +88,7 @@ public class DummyConnection implements Interface_Server{
 	@Override
 	public void startGame()
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		serverconnection.runGame();
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
 import javax.swing.JComponent;
 
 /**
@@ -37,7 +38,7 @@ public class DrawGameComponent extends JComponent {
 			@SuppressWarnings("empty-statement")
 			public void run()
 			{
-				g2.setColor(Color.black);
+				g2.setColor(Color.white);
 				g2.fillRect(0, 0, 800, 800);
 				drawBall(g2);
 			}
@@ -47,7 +48,9 @@ public class DrawGameComponent extends JComponent {
 
 	private void drawBall(Graphics g)
 	{
-
+		g.setColor(Color.black);
+		Point2D ballPos = ClientApp.getClientApp().getBallPosition();
+		g.fillRect((int)ballPos.getX()-2, (int)ballPos.getY()-2, 4, 4);
 	}
 
 	private void drawBat(Graphics g)

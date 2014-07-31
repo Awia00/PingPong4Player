@@ -12,6 +12,8 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -28,6 +30,8 @@ public class MainFrame extends JFrame implements KeyListener{
 
 	private Interface_SendInfoToServer serverSend;
 	private JComponent drawGameComponent;
+	protected Timer timer;
+	TimerTask task;
 	
 	public MainFrame() throws HeadlessException
 	{
@@ -42,13 +46,24 @@ public class MainFrame extends JFrame implements KeyListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800,800));
 		addKeyListener(this);
+		task = new TimerTask() {
+
+			@Override
+			public void run()
+			{
+				rdyUp();
+			}
+		};
+		timer = new Timer();
+		timer.schedule(task, 15, 15);
 	}
 	
-	private void rdyUp()
+	protected void rdyUp()
 	{
 		pack();
 		setVisible(true);
 		repaint();
+		System.out.println("hej");
 	}
 
 	

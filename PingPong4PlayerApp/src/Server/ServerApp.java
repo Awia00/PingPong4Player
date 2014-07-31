@@ -9,6 +9,7 @@ package Server;
 import Server.Ball;
 import Server.GameSession;
 import Server.Player;
+import java.awt.geom.Point2D;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,7 +50,7 @@ public class ServerApp {
 				Player.emptyPlayer(), 
 				Player.emptyPlayer(), 
 				3, 
-				Ball.emptyBall());
+				new Ball(new Point2D.Double(400,400), 1.5f, new Point2D.Double(1,1)));
 	}
 	
 	public void runGame()
@@ -63,7 +64,7 @@ public class ServerApp {
 				gameSession.moveBall();
 			}
 		};
-		timer.schedule(task, 100,100);
+		timer.schedule(task, 15,15);
 	}
 	
 	
