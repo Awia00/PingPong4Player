@@ -66,13 +66,20 @@ public class GameSession {
 	 * @param PlayerID
 	 * @return -1 if collision top/left +1 if collision down/right 0 if no collision.
 	 */
-	public boolean checkNoPlayerBoundsCollision(int playerID)
+	public boolean checkNoPlayerBoundsCollisionPositive(int playerID)
 	{
 		Point2D point = players.get(playerID).getBatPos();
-		if(point.getX() > maxX-maxX/20 || point.getX() < minX+minX/20)return false;
-		if(point.getY() > maxY-maxY/20 || point.getY() < minY+minY/20)return false;
+		if(point.getX() > maxX-maxX/20 || point.getY() > minY+minY/20)return false;
 			
-		return false;
+		return true;
+	}
+	
+	public boolean checkNoPlayerBoundsCollisionNegative(int playerID)
+	{
+		Point2D point = players.get(playerID).getBatPos();
+		if(point.getY() > maxX-maxX/20 || point.getY() > minY+minY/20)return false;
+			
+		return true;
 	}
 	
 	/**
@@ -112,11 +119,11 @@ public class GameSession {
 	
 	public void movePlayerXPositive(int PlayerID)
 	{
-		if(checkNoPlayerBoundsCollision(PlayerID) == true) players.get(PlayerID).moveBatPositve();
+		if(checkNoPlayerBoundsCollisionPositive(PlayerID) == true) players.get(PlayerID).moveBatPositve();
 	}
 	
 	public void movePlayerXNegative(int PlayerID)
 	{
-		if(checkNoPlayerBoundsCollision(PlayerID) == true) players.get(PlayerID).moveBatNegative();
+		if(checkNoPlayerBoundsCollisionNegative(PlayerID) == true) players.get(PlayerID).moveBatNegative();
 	}
 }
