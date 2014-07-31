@@ -63,7 +63,6 @@ public class MainFrame extends JFrame implements KeyListener{
 		pack();
 		setVisible(true);
 		repaint();
-		System.out.println("hej");
 	}
 
 	

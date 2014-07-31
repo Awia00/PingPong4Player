@@ -41,6 +41,7 @@ public class DrawGameComponent extends JComponent {
 				g2.setColor(Color.white);
 				g2.fillRect(0, 0, 800, 800);
 				drawBall(g2);
+				drawBat(g2);
 			}
 		};
 		thread.run();
@@ -55,7 +56,17 @@ public class DrawGameComponent extends JComponent {
 
 	private void drawBat(Graphics g)
 	{
-
+		g.setColor(Color.black);
+		for(int i = 1 ; i<=4 ; i++)
+		{
+			Point2D batPos = ClientApp.getClientApp().getPlayerXPosition(i);
+			Point2D batLength = ClientApp.getClientApp().getPlayerXBatLength(i);
+			g.fillRect(
+					(int)(batPos.getX()-batLength.getX()/2),
+					(int)(batPos.getY()-batLength.getY()/2),
+					(int)batLength.getX(),
+					(int)batLength.getY());
+		}
 	}
 
 	private void drawEnvironment(Graphics g)

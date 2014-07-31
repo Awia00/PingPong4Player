@@ -103,4 +103,10 @@ public class DummyConnection implements Interface_Server{
 		return serverconnection.getGameSession().assignPlayer(name);
 	}
 
+	@Override
+	public Point2D getPlayerXBatLength(int playerID)
+	{
+		return serverconnection.getGameSession().getPlayerXBatLength(playerID);
+	}
+
 }

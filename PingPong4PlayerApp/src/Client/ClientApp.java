@@ -51,6 +51,16 @@ public class ClientApp {
 		serverConnection.movePlayerNegative(thePlayer.getID());
 	}
 	
+	public Point2D getPlayerXPosition(int playerID)
+	{
+		return serverConnection.getPlayerXPosition(playerID);
+	}
+	
+	public Point2D getPlayerXBatLength(int playerID)
+	{
+		return serverConnection.getPlayerXBatLength(playerID);
+	}
+	
 	public Point2D getBallPosition()
 	{
 		return serverConnection.getBallPosition();

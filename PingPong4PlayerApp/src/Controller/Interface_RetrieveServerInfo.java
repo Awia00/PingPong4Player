@@ -18,6 +18,7 @@ public interface Interface_RetrieveServerInfo {
 	Player specific methods
 	*/
 	public Point2D getPlayerXPosition(int playerID);
+	public Point2D getPlayerXBatLength(int playerID);
 	public int getPlayerXScore(int playerID);
 	public int assignPlayer(String name);
 	

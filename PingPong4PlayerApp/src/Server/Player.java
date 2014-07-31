@@ -46,7 +46,7 @@ public class Player {
 		return bat.getPosition();
 	}
 
-	public float getBatLength()
+	public Point2D getBatLength()
 	{
 		return bat.getLength();
 	}
