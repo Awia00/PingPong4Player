@@ -19,6 +19,7 @@ public interface Interface_RetrieveServerInfo {
 	*/
 	public Point2D getPlayerXPosition(int playerID);
 	public int getPlayerXScore(int playerID);
+	public int assignPlayer(String name);
 	
 	/*
 	Game specific methods

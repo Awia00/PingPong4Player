@@ -20,13 +20,20 @@ import java.util.TimerTask;
  */
 public class ServerApp {
 
+	private static ServerApp instance;
+	
 	protected GameSession gameSession;
 	private boolean isGameRunning;
 	private Timer timer;
 	
-	public ServerApp()
+	private ServerApp()
 	{
 		createGame();
+	}
+
+	public GameSession getGameSession()
+	{
+		return gameSession;
 	}
 	
 	private void createGame()
@@ -40,7 +47,7 @@ public class ServerApp {
 				Ball.emptyBall());
 	}
 	
-	private void runGame()
+	public void runGame()
 	{
 		timer = new Timer();
 		TimerTask task = new TimerTask() {
@@ -70,6 +77,12 @@ public class ServerApp {
 	private void movePlayer(int playerID, int direction)
 	{
 		
+	}
+	
+	public static ServerApp getServerApp()
+	{
+		if(instance == null) instance = new ServerApp();
+		return instance;
 	}
 	
 }

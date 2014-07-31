@@ -7,6 +7,7 @@
 package Client;
 
 import Client.MainFrame;
+import Controller.Interface_Server;
 
 /**
  * Class description:
@@ -15,9 +16,23 @@ import Client.MainFrame;
  * @author Anders Wind - awis@itu.dk
  */
 public class ClientApp {
+	
+	private static ClientApp instance;
+	private Interface_Server serverConnection;
 
-	public ClientApp()
+	private ClientApp()
 	{
 		new MainFrame();
+		serverConnection = new DummyConnection();
 	}
+	
+	
+
+	public static ClientApp getClientApp()
+	{
+		if(instance == null) instance = new ClientApp();
+		return instance;
+	}
+	
+	
 }

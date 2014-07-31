@@ -7,6 +7,7 @@
 package Server;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 /**
  * Class description:
@@ -16,6 +17,7 @@ import java.awt.geom.Point2D;
  */
 public class GameSession {
 
+	private ArrayList<Player> players;
 	private Player player1;
 	private Player player2;
 	private Player player3;
@@ -27,17 +29,32 @@ public class GameSession {
 
 	public GameSession(Player player1, Player player2, Player player3, Player player4, int pointsToWin, Ball ball)
 	{
-		this.player1 = player1;
-		this.player2 = player2;
-		this.player3 = player3;
-		this.player4 = player4;
+		players = new ArrayList<>();
+		players.add(null);
+		players.add(player1);
+		players.add(player2);
+		players.add(player3);
+		players.add(player4);
 		this.pointsToWin = pointsToWin;
 		this.ball = ball;
 	}
 	
 	public void moveBall()
 	{
-		
+		ball.move();
+	}
+	
+	public int assignPlayer(String name)
+	{
+		for(int i = 1; i <=4 ; i++)
+		{
+			if(players.get(i).isEmpty())
+			{
+				players.add(i, new Player(new Bat(new Point2D.Float(0, 0), 2, 1,new Point2D.Float(0, 0)), 0, name));
+				return i;
+			}
+		}
+		return 0;
 	}
 	
 	/**
@@ -62,46 +79,22 @@ public class GameSession {
 	
 	public Point2D getPlayerXBatPos(int PlayerID)
 	{
-		switch (PlayerID){
-				case 1: return player1.getBatPos();
-				case 2: return player2.getBatPos();
-				case 3: return player3.getBatPos();
-				case 4: return player4.getBatPos();
-		}
-		return null;
+		return players.get(PlayerID).getBatPos();		
 	}
 	
 	public float getPlayerXBatLength(int PlayerID)
 	{
-		switch (PlayerID){
-				case 1: return player1.getBatLength();
-				case 2: return player2.getBatLength();
-				case 3: return player3.getBatLength();
-				case 4: return player4.getBatLength();
-		}
-		return 0;
+		return players.get(PlayerID).getBatLength();	
 	}
 	
 	public int getPlayerXPoints(int PlayerID)
 	{
-		switch (PlayerID){
-				case 1: return player1.getPoints();
-				case 2: return player2.getPoints();
-				case 3: return player3.getPoints();
-				case 4: return player4.getPoints();
-		}
-		return 0;
+		return players.get(PlayerID).getPoints();
 	}
 	
 	public String getPlayerXName(int PlayerID)
 	{
-		switch (PlayerID){
-				case 1: return player1.getName();
-				case 2: return player2.getName();
-				case 3: return player3.getName();
-				case 4: return player4.getName();
-		}
-		return "Error: no player";
+		return players.get(PlayerID).getName();
 	}
 	
 	public Point2D getBallPos()

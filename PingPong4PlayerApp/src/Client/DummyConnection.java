@@ -4,68 +4,43 @@
  * and open the template in the editor.
  */
 
-package Controller;
+package Client;
 
+import Controller.Interface_Server;
+import Server.ServerApp;
 import java.awt.geom.Point2D;
 
 /**
  * Class description:
  *
- * @version 0.1 - changed 28-07-2014
- * @authorNewVersion  Anders Wind - awis@itu.dk
- *
- * @buildDate 28-07-2014
+ * @buildDate 31-07-2014
  * @author Anders Wind - awis@itu.dk
  */
-public class Controller implements Interface_Server{
+public class DummyConnection implements Interface_Server{
 
-	private static Controller instance = null;
+	private ServerApp serverconnection;
 	
-	private Controller()
+	public DummyConnection()
 	{
 		
 	}
 	
-	public static Interface_RetrieveServerInfo getServerRetrieve()
-	{
-		if(instance == null) instance = new Controller();
-		return (Interface_RetrieveServerInfo)instance;
-	}
-	
-	public static Interface_RetrieveServerInfo getServerSend()
-	{
-		if(instance == null) instance = new Controller();
-		return (Interface_RetrieveServerInfo) instance;
-	}
-	
-	public static Interface_ServerSettings getServerSettings()
-	{
-		if(instance == null) instance = new Controller();
-		return (Interface_ServerSettings) instance;
-	}
-	
-	//
-	// interface specific methods.
-	//
-	
-	// retrieve
-
 	@Override
 	public Point2D getPlayerXPosition(int playerID)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return serverconnection.getGameSession().getPlayerXBatPos(playerID);
 	}
 
 	@Override
 	public int getPlayerXScore(int playerID)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return serverconnection.getGameSession().getPlayerXPoints(playerID);
 	}
 
 	@Override
 	public Point2D getBallPosition()
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return serverconnection.getGameSession().getBallPos();
 	}
 
 	@Override
@@ -79,8 +54,6 @@ public class Controller implements Interface_Server{
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-	
-	// send
 
 	@Override
 	public void movePlayerPositive()
@@ -103,7 +76,7 @@ public class Controller implements Interface_Server{
 	@Override
 	public void sendStartGameSignal()
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		serverconnection.runGame();
 	}
 
 	@Override
@@ -111,8 +84,6 @@ public class Controller implements Interface_Server{
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-	
-	// settings
 
 	@Override
 	public void startGame()
@@ -129,6 +100,7 @@ public class Controller implements Interface_Server{
 	@Override
 	public int assignPlayer(String name)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return serverconnection.getGameSession().assignPlayer(name);
 	}
+
 }

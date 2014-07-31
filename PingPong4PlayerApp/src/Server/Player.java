@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Server;
 
 import java.awt.geom.Point2D;
@@ -46,9 +45,20 @@ public class Player {
 	{
 		return bat.getPosition();
 	}
-	
+
 	public float getBatLength()
 	{
 		return bat.getLength();
+	}
+
+	public boolean isEmpty()
+	{
+		if (name.equals(""))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 }
